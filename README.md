@@ -3,6 +3,15 @@
 GOlang client library to operate over [TPLink Easy Smart Switches](https://www.tp-link.com/es/business-networking/easy-smart-switch/) that provides a website for management.
 The library basically uses HTTP calls to the site for login, logout, return information, create backups...
 
+## QuickStart
+
+```golang
+// create a client for your switch
+client := tlsg10x.New(<host>, <user>, <pass>, nil)
+// Retrieve port statistics
+err := client.PortsStats()
+```
+
 ## Tested on
 
 | MODEL | VERSION |
