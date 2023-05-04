@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"net/http/cookiejar"
 	"regexp"
 )
 
@@ -20,6 +21,9 @@ type Client struct {
 func New(h, u, p string, httpClient *http.Client) *Client {
 	if httpClient == nil {
 		httpClient = http.DefaultClient
+		// required by v6 hardware versions
+		jar, _ := cookiejar.New(nil)
+		httpClient.Jar = jar
 	}
 
 	return &Client{
